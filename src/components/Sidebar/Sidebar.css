@@ -1,0 +1,222 @@
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: 70px;
+}
+
+.sidebar.collapsed .sidebar-header {
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 0;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--text-main);
+  transition: all 0.3s;
+}
+
+.sidebar.collapsed .sidebar-title {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.collapse-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.collapse-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-buttons {
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.sidebar.collapsed .nav-buttons {
+  padding: 0 10px;
+}
+
+.view-all-btn,
+.add-printer-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px; 
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box; 
+  height: 48px; /* LÅST HÖJD */
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid transparent;
+}
+
+.view-all-btn.active {
+  border-color: var(--accent-cyan);
+  background-color: rgba(0, 210, 255, 0.05);
+}
+
+.view-all-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.add-printer-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  justify-content: center;
+}
+
+.add-printer-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.sidebar.collapsed .view-all-btn,
+.sidebar.collapsed .add-printer-btn {
+  justify-content: center;
+  padding: 0;
+  width: 48px;
+  margin: 0 auto;
+}
+
+.printer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.printer-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  gap: 15px;
+}
+
+.sidebar.collapsed .printer-item {
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.printer-icon {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.printer-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.printer-item.active {
+  background-color: rgba(0, 210, 255, 0.05);
+  border-left-color: var(--accent-cyan);
+}
+
+.printer-item.active .printer-icon,
+.printer-item.active .printer-name {
+  color: var(--accent-cyan);
+}
+
+.printer-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.printer-name {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.printer-ip {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.sidebar-footer {
+  padding: 20px 15px;
+}
+
+.sidebar.collapsed .sidebar-footer {
+  padding: 20px 10px;
+}
+
+.sidebar-bottom-actions {
+  display: flex;
+  gap: 15px;
+  padding: 20px 0;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+.sidebar.collapsed .sidebar-bottom-actions {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.bottom-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.bottom-icon-btn:hover {
+  color: white;
+  transform: scale(1.1);
+}
+
+.bottom-icon-btn.active {
+  color: var(--accent-cyan);
+}
