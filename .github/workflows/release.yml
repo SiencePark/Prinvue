@@ -74,7 +74,9 @@ jobs:
           workspaces: "./src-tauri -> target"
 
       - name: Install frontend dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: |
+          pnpm install
+          pnpm approve-builds --dev
 
       - name: Build & publish via tauri-action
         uses: tauri-apps/tauri-action@v0
@@ -153,7 +155,8 @@ jobs:
             apt-get install -y nodejs
             npm install -g pnpm
 
-            pnpm install --no-frozen-lockfile
+            pnpm install
+            pnpm approve-builds --dev
             pnpm tauri build --verbose
 
       - name: Get app version
